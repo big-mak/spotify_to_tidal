@@ -303,7 +303,7 @@ def sync_list(spotify_session, tidal_session, playlists, config, withFavorites= 
     results.append(tidal_id)
   if withFavorites:
     # sync all favorite spotify songs to tidal
-    repeat_on_exception(sync_liked_songs, spotify_session, tidal_session, config)
+    repeat_on_request_error(sync_liked_songs, spotify_session, tidal_session, config)
   return results
 
 def pick_tidal_playlist_for_spotify_playlist(spotify_playlist, tidal_playlists):
